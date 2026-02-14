@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    background:white;
+}
+
+/* MENU BUTTON */
+.menu-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    font-size:28px;
+    cursor:pointer;
+    z-index:1001;
+}
+
+/* SIDE MENU */
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-250px;
+    width:220px;
+    height:100%;
+    background:white;
+    box-shadow:-5px 0 20px rgba(0,0,0,0.1);
+    padding-top:80px;
+    transition:0.4s;
+    z-index:1000;
+}
+.side-menu a{
+    display:block;
+    padding:15px 25px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+.side-menu a:hover{ background:#f5f5f5; }
+
+/* COVER */
+.cover{ position:relative; height:250px; overflow:hidden; }
+.slide{ position:absolute;width:100%;height:100%;opacity:0;transition:1s; }
+.slide img{ width:100%;height:100%;object-fit:cover; }
+.slide.active{ opacity:1; }
+.curve{ position:absolute;bottom:-1px;width:100%; }
+
+/* SPOTIFY MUSIC */
+.music-section{ display:flex;justify-content:center;padding:50px 20px 30px; }
+.music-card{
+    width:260px;background:white;border-radius:20px;padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);text-align:center;
+}
+.album-cover{
+    width:100%;height:220px;object-fit:cover;border-radius:15px;margin-bottom:15px;
+}
+.play-btn{
+    margin-top:15px;width:55px;height:55px;border:none;border-radius:50%;
+    background:black;color:white;font-size:20px;cursor:pointer;
+}
+
+/* LETTER */
+.letter{ display:flex;justify-content:center;padding:40px 20px 80px; }
+.letter-box{
+    width:90%;max-width:400px;background:#fdf6e3;padding:30px;
+    border-radius:8px;box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* GALLERY PAGES */
+.page{ display:none;padding:80px 15px 30px; }
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+.gallery img{
+    width:100%;height:150px;object-fit:cover;border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="menu">
+    <a onclick="showPage('homePage')">Home</a>
+    <a onclick="showPage('sunsetPage')">Pictures of Sunset</a>
+    <a onclick="showPage('catsPage')">Cats Picture 🐱</a>
+</div>
+
+<!-- ================= HOME ================= -->
+<div id="homePage">
+
+<div class="cover">
+    <div class="slide active"><img src="cover1.jpg"></div>
+    <div class="slide"><img src="cover2.jpeg"></div>
+    <div class="slide"><img src="cover3.jpg"></div>
+
+<svg class="curve" viewBox="0 0 1440 150">
+<path fill="white"
+d="M0,96L80,106.7C160,117,320,139,480,138.7C640,139,800,117,960,101.3C1120,85,1280,75,1360,69.3L1440,64V150H0Z"/>
+</svg>
+</div>
+
+<!-- MUSIC -->
+<div class="music-section">
+    <div class="music-card">
+        <img src="darating din.jpeg" class="album-cover">
+        <h4>Darating din</h4>
+        <p style="color:gray;">Tj Monterde</p>
+        <button class="play-btn" onclick="toggleMusic()">▶</button>
+    </div>
+</div>
+
+<!-- LETTER -->
+<div class="letter">
+<div class="letter-box">
+<h3>My Idol kys,</h3>
+I just wanted to take a minute to tell you how much you mean to me. You're my favorite person, my best friend, and the one who makes every day better just by being in it.<br>
+<br>
+I love the way you laugh, the way you look at me, and how you always know how to make me feel better when I'm down. You're beautiful inside and out, and I'm so lucky to have you po.<br>
+<br>
+You inspire me to be better every day. Because of you po, I want to grow, to dream bigger, to work harder, and maging the kind of person who deserves the love you give so freely po. You make me want to build a future not just for myself, but for us. 
+
+Lagi mong tatandaan na you are not just my idol. You are my best friend, my dream, my happiness, and my greatest blessing. I love you more than words could ever fully express today, tomorrow, and always.
+
+
+        </p>
+        <p>
+            I'm deeply sorry if I'm not perfect po but I'll try to be better day by day po and I know na nagtatampo ka and I'm sorry po , but I want you to know that I'm here for you, always kahit cold ka po sakin. I'm deeply sorry po sana wag ka na po magtampo 🥺 
+           <p style="text-align:right;">Always yours ❤️ </p>
+        
+</div>
+</div>
+
+</div>
+
+<!-- ================= SUNSET ================= -->
+<div class="page" id="sunsetPage">
+<h3 style="text-align:center;"> 🌅</h3>
+<div class="gallery">
+<img src="sunset1.jpeg">
+<img src="sunset2.jpeg">
+<img src="sunset3.jpg">
+<img src="sunset4.jpeg">
+</div>
+</div>
+
+<!-- ================= CATS ================= -->
+<div class="page" id="catsPage">
+<h3 style="text-align:center;">Cute Cats 🐱</h3>
+<div class="gallery">
+<img src="cat1.jpg">
+<img src="cat2.jpg">
+<img src="cat3.jpeg">
+<img src="cat4.jpeg">
+<img src="cat5.jpeg">
+<img src="cat6.jpg">
+</div>
+</div>
+
+<audio id="music" loop>
+<source src="compressed-mxukjRUd.mp4" type="audio/mp3">
+</audio>
+
+<script>
+
+/* MENU */
+function toggleMenu(){
+ let m=document.getElementById("menu");
+ m.style.right = m.style.right==="0px" ? "-250px":"0px";
+}
+
+/* PAGE SWITCH */
+function showPage(id){
+ document.getElementById("homePage").style.display="none";
+ document.getElementById("sunsetPage").style.display="none";
+ document.getElementById("catsPage").style.display="none";
+
+ document.getElementById(id).style.display="block";
+ toggleMenu();
+}
+
+/* SLIDER */
+let slides=document.querySelectorAll(".slide");
+let c=0;
+setInterval(()=>{
+ slides[c].classList.remove("active");
+ c=(c+1)%slides.length;
+ slides[c].classList.add("active");
+},5000);
+
+/* MUSIC */
+let music=document.getElementById("music");
+let btn=document.querySelector(".play-btn");
+function toggleMusic(){
+ if(music.paused){ music.play(); btn.innerHTML="❚❚"; }
+ else{ music.pause(); btn.innerHTML="▶"; }
+}
+
+</script>
+
+</body>
+</html>
